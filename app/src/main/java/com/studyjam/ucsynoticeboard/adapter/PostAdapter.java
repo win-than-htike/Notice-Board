@@ -17,22 +17,22 @@ import java.util.List;
  */
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
 
-    private List<Post> mFlowers;
+    private List<Post> posts;
 
     public PostAdapter() {
-        this.mFlowers = new ArrayList<>();
+        this.posts = new ArrayList<>();
     }
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item, null, false);
+        View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item, parent, false);
         return new Holder(row);
     }
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
 
-        Post p = mFlowers.get(position);
+        Post p = posts.get(position);
         holder.tvPostName.setText(p.getTitle());
         holder.tvPostContent.setText(p.getContent());
 
@@ -40,14 +40,19 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
 
     @Override
     public int getItemCount() {
-        return mFlowers.size();
+        return posts.size();
     }
 
     public void addPost(Post post) {
 
-        mFlowers.add(post);
+        posts.add(post);
         notifyDataSetChanged();
 
+    }
+
+    public void reset() {
+        posts.clear();
+        notifyDataSetChanged();
     }
 
 

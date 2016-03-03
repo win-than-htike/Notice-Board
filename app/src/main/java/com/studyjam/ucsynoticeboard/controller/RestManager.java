@@ -13,7 +13,7 @@ public class RestManager {
 
     private PostService mPostService;
 
-    public PostService getPostService(){
+    public PostService getInstance(){
 
         if (mPostService == null){
 
