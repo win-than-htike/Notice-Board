@@ -27,6 +27,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Medium Text"
             android:paddingTop="20dp"
+            android:textColor="#000"
             android:id="@+id/tv_post_content"
             android:layout_centerInParent="true"/>
 

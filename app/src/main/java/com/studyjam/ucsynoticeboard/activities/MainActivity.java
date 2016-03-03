@@ -1,6 +1,8 @@
 package com.studyjam.ucsynoticeboard.activities;
 
 import android.app.ProgressDialog;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RestManager mManager;
     private PostAdapter mPostAdapter;
-    private Button btnReload;
     private ProgressDialog mDialog;
 
     @Override
@@ -35,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         configViews();
 
-        btnReload = (Button)findViewById(R.id.btn_reload);
-        btnReload.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_reload);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loadNewPosts();
